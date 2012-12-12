@@ -4,9 +4,9 @@
     <tbody>
         {% for device in device_list %}
            {% if device.on %}
-           <tr><td>{{ device.name }} </td><td> <a href="/automate/device/{{ device.id }}/off/"> on </a></td></tr>
+           <tr><td>{{ device.name }} </td><td> <a href="/bautomate/device/{{ device.id }}/off/"> on </a></td></tr>
            {% else %}
-           <tr><td>{{ device.name }} </td><td> <a href="/automate/device/{{ device.id }}/on/"> off </a></td></tr>
+           <tr><td>{{ device.name }} </td><td> <a href="/bautomate/device/{{ device.id }}/on/"> off </a></td></tr>
            {% endif %}
         {% endfor %}
     </tbody>
