@@ -1,0 +1,8 @@
+The idea is to make an east page so i can turn my light on and off
+form a webpage. It should work form a computer or any mobile phone.
+
+The current host enviroment is a Raspbery Pie, a Telldus tellstick,
+a bunch of Nexa remote controlled switches.
+
+In addition to this software the open source Telldus libraries are used
+and a pytyhon ctypes library to this.
