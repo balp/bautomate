@@ -26,14 +26,20 @@ p {margin-left:20px;}
     width: 100%;
     border: 1px solid;
     border-radius: 15px;
+    border-spacing: 0;
     box-shadow: 10px 10px 5px #C0C0C0 ;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 1em;
 }
 
 #oddrow {
     background-color: #EEEEEE;
+}
+#evenrow {
+    background-color: #FFFFFF;
+}
+#endrow {
+    height: 10px ;
 }
 
 #namecolumn {
@@ -41,9 +47,31 @@ p {margin-left:20px;}
     font-size: 2em;
 }
 
+#devicename {
+    padding: 1em;
+}
+
 #statuscolumn {
     width: 30%;
     font-size: 2em;
     text-align: center;
     padding: 1em;
+}
+
+#footer {
+    margin-right: auto;
+    margin-left: auto;
+    width: 96%;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: #AAAAAA;
+    font-size: 1em;
+    text-align: left;
+    box-shadow: 6px 6px 3px #C0C0C0 ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#footerdata {
+    padding: 1em;
+    width: 100%;
 }
