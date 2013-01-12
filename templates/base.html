@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "styles.css" %}" />
+        <title> {% block title %} Bautomate: Page {% endblock %} </title>
+    </head>
+    <body>
+        <div id="wrapper">
+        <div id="header">
+            {% block header %}{% endblock %}
+        <div id="navigation">
+            {% block navigation %}{% endblock %}
+        </div>
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+        </div>
+        <div id="footer">
+            {% block footer %}{% endblock %}
+        </div>
+    </body>
+</html>

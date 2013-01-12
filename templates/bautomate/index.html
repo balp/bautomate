@@ -1,17 +1,34 @@
-<h1> Björkvägen - XMas Lights </h1>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} BAutomates: List {% endblock %}
+{% block header %}
+BAutomate
+{% endblock %}
+
+{% block content %}
 {% if device_list %}
-<table> <thead> <tr> <th> Name </th> <th> Status </th> </tr> </thead>
+    <table id="devicetable">
+        <thead> <tr> <th id="namecolumn"> Name </th>
+                <th id="statuscolumn"> Status </th> </tr> </thead>
     <tbody>
         {% for device in device_list %}
+           <tr id="{% if forloop.counter|divisibleby:2 %}evenrow{% else %}oddrow{% endif %}" >
+               <td id="namecolumn">{{ device.name }} </td>
            {% if device.on %}
-           <tr><td>{{ device.name }} </td><td> <a href="/bautomate/device/{{ device.id }}/off/"> on </a></td></tr>
+           <td id="statuscolumn"><a href="/bautomate/device/{{ device.id }}/off/">
+                   <img src="{% static "worked-awhile-lights-icons-by-artbees/png/96/OnLamp.png" %}" alt="On"/>
+           </a></td>
            {% else %}
-           <tr><td>{{ device.name }} </td><td> <a href="/bautomate/device/{{ device.id }}/on/"> off </a></td></tr>
+           <td id="statuscolumn"> <a href="/bautomate/device/{{ device.id }}/on/">
+                   <img src="{% static "worked-awhile-lights-icons-by-artbees/png/96/OffLamp.png" %}" alt="Off"/>
+           </a></td>
            {% endif %}
+           </tr>
         {% endfor %}
     </tbody>
 </table>
 {% else %}
    <p>No lights found</p>
 {% endif %}
-
+{% endblock %}
