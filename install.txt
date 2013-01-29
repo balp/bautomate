@@ -1,0 +1,40 @@
+
+Some steps to install and setup, It way way for automated
+a bit knowing of django in linux, and linux sysadmins is required.
+
+
+
+* install telldus library
+
+sudo apt-get install libftdi-dev
+git clone http://git.telldus.com/telldus.git
+cd telldus
+git checkout v2.1.1
+mkdir build_v2
+cd build_v2/
+cmake -DFORCE_COMPILE_FROM_TRUNK=true ../telldus-core/
+make
+sudo make install
+sudo cp ../3rdparty/tellstickcontroller/tellstickControllerTdtool /usr/local/bin/tellstickControllerTdtool
+
+* Make telldus autostart
+
+* Install django
+sudo apt-get install python-django
+
+* set up the new site:
+
+cd /var/www
+django-admin.py startproject pisite
+cd pisite
+git init
+git submodule add https://github.com/balp/bautomate.git bautomate
+git submodule update --init
+
+* Fix site config
+
+* Deploy the site
+https://docs.djangoproject.com/en/1.4/howto/deployment/wsgi/
+
+
+
