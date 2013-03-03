@@ -6,11 +6,11 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from models import TimerPeriod
+import datetime
 
-
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+class TestTime(TestCase):
+    def test_on_piriod(self):
+        tp = TimerPeriod(start_time=datetime.time(8,00),
+                end_time=datetime.time(9,00))
+        self.assertEqual(True, tp.status(time=datetime.time(8,01)))
