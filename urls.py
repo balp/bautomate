@@ -7,6 +7,5 @@ urlpatterns = patterns('',
     url(r'^device/(?P<device_id>\d+)/$', DetailView.as_view(
         model=TelldusDevice,
         template_name='bautomate/detail.html')),
-    url(r'^device/(?P<device_id>\d+)/on/$', 'bautomate.views.on'),
-    url(r'^device/(?P<device_id>\d+)/off/$', 'bautomate.views.off'),
+    url(r'^device/(?P<device_id>\d+)/switch/$', 'bautomate.views.switch'),
 )
