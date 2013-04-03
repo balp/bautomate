@@ -9,8 +9,12 @@ class TelldusDevice(models.Model):
     td_id = models.IntegerField()
     name = models.CharField(max_length=200)
     on = models.BooleanField()
+    def __str__(self):
+        return self.name
     def __unicode__(self):
         return self.name
+    def as_dict(self):
+        return {'td_id':self.td_id, 'name': self.name, 'on':self.on}
 
 class TimerPeriod(models.Model):
     start_time = models.TimeField()

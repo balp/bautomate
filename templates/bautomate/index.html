@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
 {% block title %} BAutomates: List {% endblock %}
+{% block head %}
+
+ <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+ <script language="javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
+ <script src="{% static "submit.js" %}"></script>
+ 
+{% endblock %}
+
+
 {% block header %}
 BAutomate
 {% endblock %}
@@ -17,16 +25,18 @@ BAutomate
                <td id="namecolumn"><div id="devicename">{{ device.name }}</div></td>
            {% if device.on %}
            <td id="statuscolumn">
-               <form action="/bautomate/device/{{ device.id }}/switch/" method="post">{% csrf_token %}
+               <form action="/bautomate/device/{{ device.id }}/switch/" class="lightchange" method="post" id="{{ device.name }}">{% csrf_token %}
                  <input type="hidden" name="to" value="off" />
-                 <input type="image" name="Switch" src="{% static "worked-awhile-lights-icons-by-artbees/png/96/OnLamp.png" %}" value="Turn" />
+                 <input type="image" name="Switch" class="lightchange"
+                  src="{% static "worked-awhile-lights-icons-by-artbees/png/96/OnLamp.png" %}" value="Turn" />
                </form>
            </td>
            {% else %}
            <td id="statuscolumn">
-               <form action="/bautomate/device/{{ device.id }}/switch/" method="post">{% csrf_token %}
+               <form action="/bautomate/device/{{ device.id }}/switch/" class="lightchange" method="post" id="{{ device.name }}">{% csrf_token %}
                  <input type="hidden" name="to" value="on" />
-                 <input type="image" name="Switch" src="{% static "worked-awhile-lights-icons-by-artbees/png/96/OffLamp.png" %}" value="Turn" />
+                 <input type="image" name="Switch" class="lightchange"
+                  src="{% static "worked-awhile-lights-icons-by-artbees/png/96/OffLamp.png" %}" value="Turn" />
                </form>
            </td>
            {% endif %}
